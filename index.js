@@ -8,7 +8,7 @@ const productRoutes=require('./routes/productRoutes')
 const path = require('path')
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000 
 
 dotenv.config();
 
@@ -29,11 +29,11 @@ app.use('/product',productRoutes)
 app.use('/uploads', express.static('uploads'));
 
 app.listen(port, () => {
-    console.log("server running under 4000")
+  console.log(`Example app listening on port ${port}`)
 })
 
 
 
-app.use('/home', (req, res) => {
+app.use('/', (req, res) => {
     res.send('<h1> welcome to home page')
 })
