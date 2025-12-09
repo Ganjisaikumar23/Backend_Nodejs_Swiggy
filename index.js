@@ -8,8 +8,7 @@ const productRoutes=require('./routes/productRoutes')
 const path = require('path')
 
 const app = express();
-const port = process.env.PORT || 4000 
-
+const PORT = process.env.PORT || 4000;
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL)
@@ -28,9 +27,9 @@ app.use('/product',productRoutes)
 
 app.use('/uploads', express.static('uploads'));
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.listen(PORT, () => {
+    console.log(`server started and running at ${PORT}`);
+});
 
 
 
